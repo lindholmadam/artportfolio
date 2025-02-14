@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+
+<section style="background-color: whitesmoke; margin-bottom: 0;" class="galleri-section section">
+    <h2>Fine Art Prints</h2>
+    <hr id="hr">
+    <p id="section-text-intro">Fine art prints i begränsad upplaga. Tryckt med arkivbeständigt bläck på högkvalitativt Hahnemühle Studio Enhanced 210g. Trycket signeras, numreras och äkthetsintyg medföljer. Vid intresse går det bra att <a href="/kontakt" style="color: rgb(0, 0, 255);">kontakta </a>mig för mer information.</p>
+    <div style="margin-bottom: 100px;" class="gallery-container">
+    <% allPrints.reverse().forEach(function(print) { %>
+        <div class="gallery-image-container">
+            <img id="n-c" src="<%= print.printUrl%>" alt="<%= print.tags %>">
+            <h6 class="title"><%= print.title %></h6>
+        </div>
+        <% }) %>
+    </div>
+</section>
+
+<script>
+    const NC = document.querySelectorAll("#n-c")
+    NC.forEach(cl => {
+        cl.addEventListener('contextmenu', function (e) { 
+            e.preventDefault();
+        }, false);
+    });
+</script>
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<section class="galleri-section section">
+    <h2>galleri</h2>
+    <hr id="hr">
+    <p id="section-text-intro">Här har jag valt ut mina personliga favoriter bland alla mina tavlor. Var och en har en egen historia, ett budskap eller både och. Vid intresse för min konst går det bra att <a href="/kontakt" style="color: rgb(0, 0, 255);">kontakta</a> mig för ett besök i min ateljé eller för andra funderingar.</p>
+    <div class="gallery-container">
+    <% allImages.reverse().forEach(function(image) { %>
+        <div class="gallery-image-container">
+            <a href="/images/<%= image._id %>"><img id="n-c" src="<%= image.imageUrls[0]%>" alt="<%= image.tags %>"></a>
+            <h6 class="title"><%= image.title %></h6>
+            <h6 class="dimensions"><%= image.dimensions %></h6>
+        </div>
+        <% }) %>
+    </div>
+</section>
+
+<script>
+    const NC = document.querySelectorAll("#n-c")
+    NC.forEach(cl => {
+        cl.addEventListener('contextmenu', function (e) { 
+            e.preventDefault();
+        }, false);
+    });
+</script>
+
+
+<%- include('partials/footer') %>

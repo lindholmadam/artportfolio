@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+
+<section class="section-image section">
+    <div class="image-content">
+        <div class="buttons-container">
+            <div class="button" id="left">
+                <span class="material-symbols-outlined" id="arrow-slider">
+                    arrow_back_ios
+                </span>
+            </div>
+            <div class="button" id="right">
+                <span class="material-symbols-outlined" id="arrow-slider">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </div> 
+        <div class="carousel">
+            <div class="image-container" id="imgs">
+                <% const images = fullImage.imageUrls %> 
+                <% for (let i = 0; i < images.length; i++) {%>
+                <div class="image active">
+                    <img id="n-c" src="<%= fullImage.imageUrls[i] %>" alt="<%= fullImage.tags %>">
+                </div>
+                <%} %>
+                </div>
+            </div>
+        </div>
+        <div class="image-description">
+            <h6 class="img-title"><%= fullImage.title %></h6>
+            <h6 class="img-dimensions"><%= fullImage.dimensions %></h6>
+            <p><%= fullImage.description %> </p>
+        </div>
+    </div>
+</section>
+
+
+<script>
+const NC = document.querySelectorAll("#n-c")
+
+NC.forEach(cl => {
+    cl.addEventListener('contextmenu', function (e) { 
+        e.preventDefault();
+    }, false);
+});
+
+
+const imgs = document.getElementById("imgs");
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+const img = document.querySelectorAll("#imgs div");
+const navigation = document.querySelector(".buttons-container");
+
+if (img.length === 1) {
+    navigation.style.display="none";
+}
+
+let idx = 0
+
+rightBtn.addEventListener(`click`, () => {
+  idx++ 
+  changeImage()
+})
+leftBtn.addEventListener(`click`, () => {
+  idx--
+  changeImage()
+})
+
+
+function changeImage () {
+  if(idx > img.length - 1) {
+    idx = 0
+  } else if (idx < 0) {
+    idx = img.length - 1
+  }
+
+    imgs.style.transform = `translateX(${-idx * 90}vw)`
+}
+</script>
+
+<%- include('partials/footer') %>

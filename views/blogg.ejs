@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+<section class="section-blog section">
+  <h2 class="heading-blog">Blogg</h2>
+  <hr id="hr">
+  <div class="content-blog">
+    <% allPosts.reverse().forEach(post => { %> 
+    <div class="post-blog">
+      <h4> <%= post.title %> </h4>
+      <% let newDate = new Date(post.date) %>
+      <% const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; %> 
+      <p class="date-blog" id="date"><%=newDate.toLocaleDateString("sv-se", options)%></p>
+      <img src="<%= post.image %>" alt="<%= post.tags %>">
+      
+      <div class="text-blog">
+        <p id="text-blog"><%=post.text%></p>
+      </div>
+
+      <div class="expand-blur">
+        <span class="expand-btn-text">läs mer</span>
+        <span class="material-symbols-outlined" id="expand-btn">
+          keyboard_arrow_down
+        </span>
+      </div>
+
+    </div>
+    <% }) %> 
+  </div>
+</section>
+
+<script>
+
+  const textContainers = document.querySelectorAll(".text-blog");
+  const texts = document.querySelectorAll("#text-blog");
+  const expandBtnsContainer = document.querySelectorAll(".expand-blur");
+  const expandArrows = document.querySelectorAll("#expand-btn");
+  const expandBtnText = document.querySelectorAll(".expand-btn-text");
+
+  texts.forEach((text, idx) => {
+    if (text.offsetHeight < textContainers[idx].offsetHeight) {
+      expandBtnsContainer[idx].style.display = "none";
+      textContainers[idx].classList.add("expand");
+    }
+  });
+
+  expandBtnsContainer.forEach((btn, idx) => {
+    btn.addEventListener("click", () => {
+      textContainers[idx].classList.toggle("expand");
+      expandArrows[idx].classList.toggle("rotate");
+      expandBtnText[idx].classList.toggle("remove");
+      btn.classList.toggle("noblur");
+    });
+    
+  });
+
+</script>
+
+<%- include('partials/footer') %>
