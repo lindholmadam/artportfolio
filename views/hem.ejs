@@ -30,28 +30,6 @@
 </section>
 
 
-<!-- <section class="news-section">
-  <div class="news-container">
-    <h3>aktuellt just nu</h3>
-    <div class="news-content">
-      <% allNews.forEach(news => { %>
-        <div class="news-post" id="news-post" style="display: none;">
-          <div class="news-position">
-            <p class="date" id="date"><%=news.newdate%></p>
-            <div id="news-content">
-              <h6 class="news-title"> <%= news.title %></h6>
-              <p class="news-text"><%= news.text %> </p>
-            </div>
-          </div>
-        </div>
-        <% }); %>
-    </div>
-  </div>
-  <span class="material-symbols-outlined" id="news-icon">
-    keyboard_arrow_down
-  </span>
-</section> -->
-
 
 <section class="blog-section">
   <h1>Blogg</h1>
@@ -59,9 +37,6 @@
 
     <% allPosts.forEach(post => { %>
     <div class="blog-post">
-      <!-- <div class="blog-img-container">
-        <img id="blog-img" src="<%=post.image%>" alt="<% post.tags %>">
-      </div> -->
       <div class="blog-text-container">
           <h6 id="blog-title"><%= post.title %> </h6>
           <p id="blog-text"><%= post.text.substring(0, 200) %>... </p>
@@ -80,17 +55,6 @@
     <h4>se mer</h4>
   </a>
 </section>
-
-
-<!-- <section id="biografi-2" class="landing-section">
-  <div class="landing-container biografi">
-    <img src="https://ams03pap001files.storage.live.com/y4mafvJS7Fs9-Xoxt12yidhUj66z3ARWTUTDlG-NxzR-fizCpGi_bQbJ-fEuPNOlHKqhuMWf1OjPtDrn-DEiVOPounTTOwVUu2kkn2gW1gNCsj9lAPHzr_gvcLtgGthdtXaf1HK8GLGzEk_awAyY0AVW5B3trGK8h6Vy2yLao6pye6dxIjli_8AekaYrmFJN_zx?width=810&height=1024&cropmode=none" alt="biografi bild på bitte brun i sitt galleri">
-    <h1>biografi</h1>
-    <a class="landing-btn biografi" href="/biografi">
-        <h4>se mer</h4>
-    </a>
-  </div>
-</section> -->
 
 
 <section class="insta-section">

@@ -389,13 +389,6 @@ header {
   }
 }
 
-/* Shrink for Medium Screens (Between 1025px and 1400px) */
-/* @media (max-width: 1400px) {
-  .landing-container {
-    width: 45vw;
-    height: 45vw;
-  }
-} */
 
 /* Stack Vertically on iPads & Smaller (1024px and below) */
 @media (max-width: 720px) {

@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /login
-Sitemap: https://artbittebrun.se/sitemap.xml
